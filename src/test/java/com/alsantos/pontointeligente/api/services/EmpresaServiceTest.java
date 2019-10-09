@@ -10,8 +10,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -36,8 +34,12 @@ public class EmpresaServiceTest {
 	
 	@Before
 	public void setUp() {
-		BDDMockito.given(this.empRepo.findByCnpj(Mockito.anyString())).willReturn(new Empresa());
-		BDDMockito.given(this.empRepo.save(Mockito.any(Empresa.class))).willReturn(new Empresa());
+		Empresa empresa = new Empresa();
+		empresa.setCnpj(CNPJ);
+		empresa.setRazaoSocial("Empresa Teste");
+		
+		BDDMockito.given(this.empRepo.findByCnpj(Mockito.anyString())).willReturn(empresa);
+		BDDMockito.given(this.empRepo.save(Mockito.any(Empresa.class))).willReturn(empresa);
 	}
 	
 	@Test

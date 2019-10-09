@@ -20,7 +20,7 @@ public class PasswordUtilsTest {
 	private final BCryptPasswordEncoder bCryptEncoder = new BCryptPasswordEncoder();
 	
 	@Test
-	public void testaSenhaNula() {
+	public void testSenhaNula() {
 		assertNull(PasswordUtils.gerarBCrypt(null));
 	}
 	

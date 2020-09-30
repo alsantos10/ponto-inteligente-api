@@ -2,7 +2,7 @@ package com.alsantos.pontointeligente.api.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class PasswordUtils {
 	
@@ -22,10 +22,11 @@ public class PasswordUtils {
 		if (senha == null) {			
 			return senha;
 		}
+		return senha;
 		
-		log.info("Gerar uma hash de senha");
-		BCryptPasswordEncoder bCryptEncoder = new BCryptPasswordEncoder();
-		return bCryptEncoder.encode(senha);
+		//log.info("Gerar uma hash de senha");
+		//BCryptPasswordEncoder bCryptEncoder = new BCryptPasswordEncoder();
+		//return bCryptEncoder.encode(senha);
 		
 	}
 }
